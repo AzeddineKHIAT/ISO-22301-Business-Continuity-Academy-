@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plateforme PCA ISO 22301 - Prof. Azeddine KHIAT</title>
+<style>
+:root{
+  --bg:#f3f6fb;--card:#fff;--ink:#111827;--muted:#5b6577;--primary:#1f4f8f;--primary2:#2563eb;--accent:#0f766e;
+  --line:#d8e0ec;--soft:#eef4ff;--good:#166534;--warn:#92400e;--bad:#991b1b;
+  --shadow:0 12px 35px rgba(15,23,42,.08);--radius:20px;
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f8fbff,#eef3f9);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(135deg,#0f2f5f,#1e5aa8);color:#fff;padding:34px 22px 26px;box-shadow:var(--shadow)}
+.header-wrap{max-width:1220px;margin:auto;display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand h1{margin:0;font-size:clamp(28px,4vw,48px);letter-spacing:-.02em}.brand p{margin:8px 0 0;font-size:18px;color:#dbeafe}.signature{text-align:right;font-size:15px;color:#e6f0ff}.signature strong{font-size:18px;color:#fff}
+main{max-width:1220px;margin:24px auto 80px;padding:0 18px}.nav{position:sticky;top:0;z-index:20;background:rgba(243,246,251,.92);backdrop-filter:blur(10px);padding:12px 0;display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid rgba(216,224,236,.6)}
+.nav button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-weight:800;color:#20304d;cursor:pointer}.nav button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.section{display:none;animation:fade .2s ease}.section.active{display:block}@keyframes fade{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:20px 0}.hero h2{font-size:34px;margin:0 0 8px}.grid{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;min-width:0}.equal{height:100%;display:flex;flex-direction:column}.card h3{margin:0 0 10px;font-size:24px;color:#14213d}.card h4{margin:18px 0 8px;color:#1f3a68}.muted{color:var(--muted)}.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:var(--soft);border:1px solid #d7e5ff;color:#143e75;padding:6px 11px;font-weight:800;font-size:13px;margin:3px}.note{background:#f8fafc;border:1px dashed #b8c5d8;border-radius:16px;padding:14px;margin:14px 0}.learn-card{min-height:620px}.schema{border:1px solid #d8e2ef;border-radius:18px;background:linear-gradient(180deg,#fff,#f7fbff);padding:18px;margin:14px 0;overflow:hidden}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.step{border:2px solid #c4cfdd;background:#fff;border-radius:16px;padding:11px 14px;font-weight:900;text-align:center;min-width:110px;cursor:pointer;transition:.15s}.step:hover,.step.selected{background:#eaf2ff;border-color:#2563eb;color:#123f7d;transform:translateY(-2px)}.arrow{font-weight:900;color:#40615c;font-size:24px}.explain{border-left:5px solid var(--primary2);background:#f8fbff;padding:14px;border-radius:12px;margin-top:12px;min-height:74px}.bottom-box{margin-top:auto;border:1px solid #dce4f0;border-radius:16px;background:#fafcff;padding:14px}.btn{border:0;border-radius:12px;background:var(--primary2);color:#fff;padding:11px 15px;font-weight:900;cursor:pointer}.btn.secondary{background:#eef2f7;color:#10203d;border:1px solid var(--line)}.btn.good{background:#15803d}.btn.warn{background:#b45309}.btn.bad{background:#b91c1c}.btn:disabled{opacity:.5;cursor:not-allowed}.mini-quiz{border:1px solid #dce4f0;border-radius:16px;background:#fbfdff;padding:14px;margin-top:14px}.mini-quiz label{display:block;margin:8px 0;padding:8px;border-radius:10px;border:1px solid #e3e9f2;cursor:pointer}.mini-quiz label:hover{background:#f0f7ff}.feedback{font-weight:900;margin-top:8px}.ok{color:var(--good)}.ko{color:var(--bad)}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff;margin:14px 0}table{border-collapse:collapse;width:100%;min-width:620px}th,td{border-bottom:1px solid #e2e8f0;border-right:1px solid #e2e8f0;padding:12px;text-align:left}th{background:#eef2f7;font-weight:900}tr:last-child td{border-bottom:0}td:last-child,th:last-child{border-right:0}.risk-matrix{display:grid;grid-template-columns:150px repeat(4,120px);gap:6px;overflow-x:auto;padding:6px}.risk-matrix div{border-radius:12px;padding:12px;text-align:center;font-weight:900;border:1px solid #dce3ed}.head{background:#eaf0f7}.low{background:#e9f8ef;color:#166534}.med{background:#fff7df;color:#7a5600}.high{background:#fff0d6;color:#92400e}.crit{background:#ffe9e9;color:#991b1b}.canvas{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:900}.field input,.field textarea,.field select{border:1px solid #cfd8e6;border-radius:12px;padding:11px;font:inherit;background:#fff}.field textarea{min-height:90px;resize:vertical}.progress-shell{height:18px;background:#e8eef7;border-radius:999px;overflow:hidden;border:1px solid #d5dfeb}.progress-bar{height:100%;background:linear-gradient(90deg,#2563eb,#16a34a);width:0%;transition:.3s}.scorebox{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}.scoreitem{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);font-weight:900}.scenario-card{border-left:6px solid var(--primary2);background:#fff;border-radius:16px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px;margin:16px 0}.timeline{position:relative;margin:18px 0;padding-left:26px}.timeline:before{content:"";position:absolute;left:7px;top:0;bottom:0;width:3px;background:#d7e2ef}.inject{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}.inject:before{content:"";position:absolute;left:-25px;top:20px;width:15px;height:15px;border-radius:50%;background:#2563eb;border:3px solid #fff;box-shadow:0 0 0 2px #2563eb}.hidden{display:none!important}.certificate{background:#fff;border:10px solid #1e3a8a;border-radius:24px;padding:42px;text-align:center;max-width:900px;margin:20px auto;box-shadow:var(--shadow)}.certificate h2{font-size:34px;color:#1e3a8a}.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin:24px 0}.cert-grid div{border:1px solid #dce4f0;border-radius:14px;padding:12px}.links a{display:block;padding:10px;border:1px solid #dbe4f0;border-radius:12px;text-decoration:none;color:#1f4f8f;font-weight:800;margin:8px 0;background:#fff}.links a:hover{background:#eef6ff}.accordion{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:12px 0}.acc-head{padding:14px 16px;background:#eef4ff;font-weight:900;cursor:pointer;display:flex;justify-content:space-between}.acc-body{display:none;padding:16px;background:#fff}.accordion.open .acc-body{display:block}
+@media(max-width:980px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.learn-card{min-height:auto}.canvas{grid-template-columns:1fr}.signature{text-align:left}.risk-matrix{grid-template-columns:130px repeat(4,110px)}}
+@media print{header,.nav,.no-print,.section:not(.active){display:none!important}body{background:white}.certificate{box-shadow:none;margin:0;border-color:#1e3a8a}.card,.hero{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-wrap">
+    <div class="brand">
+      <h1>ISO 22301 Business Continuity Academy</h1>
+      <p>Plateforme interactive PCA : comprendre, pratiquer, simuler et certifier</p>
+    </div>
+    <div class="signature">Conçu et réalisé par<br><strong>Prof. Azeddine KHIAT</strong><br>Enseignant-Chercheur<br><strong>HESTIM</strong></div>
+  </div>
+</header>
+<main>
+  <nav class="nav no-print">
+    <button class="active" onclick="showTab('accueil',this)">🏠 Accueil</button>
+    <button onclick="showTab('comprendre',this)">📚 Comprendre</button>
+    <button onclick="showTab('practice',this)">🧩 Practice / Canvas</button>
+    <button onclick="showTab('simulate',this)">🎮 Simulateur complet</button>
+    <button onclick="showTab('ressources',this)">🔗 Ressources</button>
+    <button onclick="showTab('certify',this)">🎓 Certify</button>
+  </nav>
+
+  <section id="accueil" class="section active">
+    <div class="hero">
+      <span class="pill">PCA</span><span class="pill">ISO 22301</span><span class="pill">BIA ISO/TS 22317</span><span class="pill">ISO/IEC 27031</span><span class="pill">NIST SP 800-34</span><span class="pill">ISO 31000</span>
+      <h2>Simulateur pédagogique interactif : Construire un Plan de Continuité d'Activité</h2>
+      <p>Cette plateforme accompagne l'étudiant depuis la compréhension des référentiels jusqu'à la réalisation d'une étude de cas complète, avec canevas, décisions, score et attestation finale.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>1. Comprendre</h3><p>Cartes interactives, exemples métier, schémas cliquables et mini-tests pour bien assimiler ISO 22301, BIA, PRA SI et gestion des risques.</p></div>
+      <div class="card"><h3>2. Pratiquer</h3><p>Canevas à remplir : contexte, BIA, RTO/RPO, risques, cellule de crise, communication et mini-PCA.</p></div>
+      <div class="card"><h3>3. Simuler</h3><p>Étude de cas évolutive avec injects, décisions, validation progressive, scoring et retour pédagogique.</p></div>
+    </div>
+  </section>
+
+  <section id="comprendre" class="section">
+    <div class="hero"><h2>📚 Comprendre les référentiels avec exemples interactifs</h2><p>Chaque carte explique le rôle du référentiel, montre un schéma cliquable, donne un exemple et indique ce que l'étudiant doit renseigner dans le simulateur.</p></div>
+    <div class="grid grid-2">
+      <article class="card equal learn-card">
+        <h3>ISO 22301 — SMCA / BCMS</h3>
+        <p><strong>Idée centrale :</strong> organiser la continuité d'activité de l'entreprise avant, pendant et après une perturbation.</p>
+        <div class="schema"><div class="flow" data-group="iso22301">
+          <button class="step" onclick="explain('iso22301','Comprendre','Analyser le contexte : activités, clients, sites, obligations et dépendances.')">Comprendre</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('iso22301','Préparer','Définir la politique, les rôles, les ressources et les plans de continuité.')">Préparer</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('iso22301','Répondre','Activer la cellule de crise et maintenir les activités essentielles en mode dégradé.')">Répondre</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('iso22301','Améliorer','Tester, auditer, corriger et mettre à jour le PCA après chaque exercice.')">Améliorer</button>
+        </div><div id="iso22301Explain" class="explain">Cliquez sur une étape pour voir son explication.</div></div>
+        <h4>Exemple simple</h4><p>Une usine perd l'accès à son siège après incendie. Le SMCA aide à décider qui déclenche le PCA, quelles activités continuent, qui communique et comment revenir à la normale.</p>
+        <div class="mini-quiz"><strong>Mini-test :</strong> Le PCA cherche principalement à...
+          <label><input type="radio" name="qiso22301" value="0"> restaurer uniquement les serveurs</label>
+          <label><input type="radio" name="qiso22301" value="1"> maintenir les activités essentielles</label>
+          <button class="btn secondary" onclick="checkRadio('qiso22301','fb22301')">Vérifier</button><div id="fb22301" class="feedback"></div></div>
+        <div class="bottom-box"><strong>À renseigner dans le simulateur :</strong> périmètre, objectifs PCA, activités critiques, cellule de crise, communication, procédure de continuité et amélioration.</div>
+      </article>
+
+      <article class="card equal learn-card">
+        <h3>ISO/TS 22317 — BIA</h3>
+        <p><strong>Idée centrale :</strong> comprendre les impacts d'un arrêt pour prioriser les activités et fixer les objectifs de reprise.</p>
+        <div class="schema"><div class="flow" data-group="bia">
+          <button class="step" onclick="explain('bia','Activité','Identifier les processus métiers : production, ERP, logistique, relation client, paie...')">Activité</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('bia','Impact','Mesurer les impacts financiers, juridiques, clients, image, humains et opérationnels.')">Impact</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('bia','MTPD','Déterminer la durée maximale tolérable d’interruption avant dommage inacceptable.')">MTPD</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('bia','RTO/RPO','Fixer le temps maximal de reprise et la perte maximale acceptable de données.')">RTO/RPO</button>
+        </div><div id="biaExplain" class="explain">Cliquez sur une étape BIA pour voir son explication.</div></div>
+        <h4>Exemple guidé</h4><p>Si l'ERP tombe, les commandes ne sont plus validées, la production perd la visibilité, la livraison prend du retard et les clients stratégiques peuvent appliquer des pénalités.</p>
+        <div class="table-wrap"><table><thead><tr><th>Activité</th><th>Impact 4h</th><th>Impact 24h</th><th>RTO possible</th></tr></thead><tbody><tr><td>ERP</td><td>Élevé</td><td>Critique</td><td>4h</td></tr><tr><td>Paie</td><td>Faible</td><td>Moyen</td><td>72h</td></tr></tbody></table></div>
+        <div class="bottom-box"><strong>À renseigner :</strong> impacts par durée, priorités P1/P2/P3/P4, MTPD, RTO, RPO, ressources critiques, dépendances.</div>
+      </article>
+
+      <article class="card equal learn-card">
+        <h3>ISO/IEC 27031 + NIST SP 800-34 — PRA SI</h3>
+        <p><strong>Idée centrale :</strong> préparer les TIC et les systèmes d'information pour soutenir la continuité et permettre la reprise technique.</p>
+        <div class="schema"><div class="flow" data-group="pra">
+          <button class="step" onclick="explain('pra','PCA métier','Le métier fixe les priorités : quoi maintenir, pour qui, avec quel niveau minimum.')">PCA métier</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('pra','PRA SI','La DSI restaure applications, données, réseau et infrastructures selon les RTO/RPO.')">PRA SI</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('pra','Tests','Les tests vérifient que la reprise respecte les objectifs métier et techniques.')">Tests</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('pra','Retour normal','Retour progressif vers l’état stable, validation métier, bilan et amélioration.')">Retour normal</button>
+        </div><div id="praExplain" class="explain">Cliquez sur une étape pour distinguer PCA et PRA.</div></div>
+        <h4>Exemple</h4><p>Le BIA fixe : ERP RTO = 4h, RPO = 1h. Le PRA SI doit prévoir sauvegardes, restauration, infrastructure de secours, tests et validation métier pour respecter ces objectifs.</p>
+        <div class="note"><strong>À retenir :</strong> le PCA décide de la continuité métier ; le PRA organise la reprise technique du SI.</div>
+        <div class="bottom-box"><strong>À renseigner :</strong> systèmes critiques, dépendances SI, exigences RTO/RPO, ordre de restauration, tests de reprise, validation métier.</div>
+      </article>
+
+      <article class="card equal learn-card">
+        <h3>ISO 31000 — Management des risques</h3>
+        <p><strong>Idée centrale :</strong> identifier, analyser, évaluer et traiter les risques qui menacent les objectifs de l'organisation.</p>
+        <div class="schema"><div class="flow" data-group="risk">
+          <button class="step" onclick="explain('risk','Identifier','Lister les risques : ransomware, incendie, panne électrique, fournisseur indisponible...')">Identifier</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('risk','Analyser','Estimer causes, probabilité, impacts et scénarios possibles.')">Analyser</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('risk','Évaluer','Comparer au seuil acceptable et classer la criticité.')">Évaluer</button><span class="arrow">→</span>
+          <button class="step" onclick="explain('risk','Traiter','Réduire, transférer, accepter ou éviter le risque avec des mesures concrètes.')">Traiter</button>
+        </div><div id="riskExplain" class="explain">Cliquez sur une étape ISO 31000 pour voir l'explication.</div></div>
+        <h4>Matrice simplifiée</h4><div class="risk-matrix">
+          <div></div><div class="head">Impact faible</div><div class="head">Impact moyen</div><div class="head">Impact élevé</div><div class="head">Impact critique</div>
+          <div class="head">Probabilité élevée</div><div class="med">Moyen</div><div class="high">Élevé</div><div class="high">Élevé</div><div class="crit">Critique</div>
+          <div class="head">Probabilité moyenne</div><div class="low">Faible</div><div class="med">Moyen</div><div class="high">Élevé</div><div class="crit">Critique</div>
+          <div class="head">Probabilité faible</div><div class="low">Faible</div><div class="low">Faible</div><div class="med">Moyen</div><div class="high">Élevé</div>
+        </div>
+        <div class="bottom-box"><strong>À renseigner :</strong> risque, causes, impacts, probabilité, criticité, mesures préventives, mesures de continuité.</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="practice" class="section">
+    <div class="hero"><h2>🧩 Practice : canevas professionnels à renseigner</h2><p>Les étudiants renseignent progressivement les éléments clés d'un mini-PCA. Les réponses sont conservées localement dans le navigateur.</p></div>
+    <div class="card"><h3>Canvas PCA</h3><div class="canvas">
+      <div class="field"><label>Nom et prénom de l'étudiant</label><input id="studentName" placeholder="Ex. Fatima El Amrani" oninput="save()"></div>
+      <div class="field"><label>Contexte de l'entreprise</label><input id="ctx" placeholder="Secteur, sites, activité principale" oninput="save()"></div>
+      <div class="field"><label>Activités critiques P1</label><textarea id="p1" placeholder="Production, ERP, logistique..." oninput="save()"></textarea></div>
+      <div class="field"><label>BIA : impacts majeurs</label><textarea id="biaTxt" placeholder="Impact financier, client, image, juridique..." oninput="save()"></textarea></div>
+      <div class="field"><label>RTO/RPO prioritaires</label><textarea id="rto" placeholder="ERP : RTO 4h, RPO 1h..." oninput="save()"></textarea></div>
+      <div class="field"><label>Risques principaux</label><textarea id="risks" placeholder="Ransomware, incendie, perte Internet..." oninput="save()"></textarea></div>
+      <div class="field"><label>Cellule de crise</label><textarea id="crisisTeam" placeholder="DG, Responsable PCA, DSI, RSSI..." oninput="save()"></textarea></div>
+      <div class="field"><label>Communication de crise</label><textarea id="com" placeholder="Personnel, clients, fournisseurs, autorités..." oninput="save()"></textarea></div>
+      <div class="field" style="grid-column:1/-1"><label>Mini-PCA final</label><textarea id="miniPca" placeholder="Synthèse des mesures de continuité et retour à la normale" oninput="save()"></textarea></div>
+    </div><br><button class="btn" onclick="evaluateCanvas()">Valider le canvas</button><span id="canvasFb" class="feedback"></span></div>
+  </section>
+
+  <section id="simulate" class="section">
+    <div class="hero"><h2>🎮 Simulateur complet : Black Monday</h2><p>Une crise évolutive. À chaque inject, l'étudiant prend une décision. Les points alimentent la progression et l'attestation.</p><div class="progress-shell"><div id="simProgress" class="progress-bar"></div></div><div class="scorebox"><div class="scoreitem">Score simulation : <span id="score">0</span>/100</div><div class="scoreitem">Inject validé : <span id="injectNum">0</span>/6</div></div></div>
+    <div class="scenario-card"><h3>Contexte</h3><p>MAROC INDUSTRY TECH fabrique des composants électroniques pour des clients automobiles et aéronautiques. L'entreprise dépend fortement de l'usine, de l'ERP, des fournisseurs, de la logistique et de la communication client.</p></div>
+    <div class="timeline" id="timeline">
+      <div class="inject" id="inj1"><h3>08h15 — Perturbation électrique</h3><p>L'usine de Mohammedia signale des coupures répétées. La production ralentit.</p><div class="field"><label>Décision</label><select id="d1"><option value="0">Attendre sans informer</option><option value="10">Informer DG + surveiller + préparer cellule de crise</option><option value="5">Envoyer uniquement un mail technique</option></select></div><button class="btn" onclick="validateInject(1,'d1')">Valider</button><span id="f1" class="feedback"></span></div>
+      <div class="inject hidden" id="inj2"><h3>08h45 — Arrêt partiel de production</h3><p>Le groupe électrogène démarre mais ne couvre pas toute l'usine. Les commandes urgentes sont menacées.</p><div class="field"><label>Priorité</label><select id="d2"><option value="0">Maintenir toutes les activités sans priorité</option><option value="10">Prioriser production critique + sécurité personnel + clients stratégiques</option><option value="5">Fermer immédiatement toute l'entreprise</option></select></div><button class="btn" onclick="validateInject(2,'d2')">Valider</button><span id="f2" class="feedback"></span></div>
+      <div class="inject hidden" id="inj3"><h3>09h20 — ERP indisponible</h3><p>L'ERP ne répond plus. Les équipes ne peuvent plus valider certaines commandes.</p><div class="field"><label>Mode dégradé</label><select id="d3"><option value="0">Attendre la DSI sans solution métier</option><option value="10">Activer procédures manuelles + commandes prioritaires + journal de crise</option><option value="5">Communiquer uniquement aux techniciens</option></select></div><button class="btn" onclick="validateInject(3,'d3')">Valider</button><span id="f3" class="feedback"></span></div>
+      <div class="inject hidden" id="inj4"><h3>10h00 — Fournisseur stratégique bloqué</h3><p>Le fournisseur principal annonce un retard de 48h sur des composants critiques.</p><div class="field"><label>Réponse supply chain</label><select id="d4"><option value="0">Ne rien faire avant demain</option><option value="10">Évaluer stock + fournisseur alternatif + priorisation clients</option><option value="5">Commander n'importe quel composant sans validation qualité</option></select></div><button class="btn" onclick="validateInject(4,'d4')">Valider</button><span id="f4" class="feedback"></span></div>
+      <div class="inject hidden" id="inj5"><h3>10h40 — Pression client et réseaux sociaux</h3><p>Un client européen menace d'appliquer des pénalités. Une rumeur indique que l'entreprise est totalement arrêtée.</p><div class="field"><label>Communication</label><select id="d5"><option value="0">Ne pas répondre</option><option value="10">Message validé par cellule de crise : faits, impacts, actions, prochain point</option><option value="5">Répondre publiquement sans validation</option></select></div><button class="btn" onclick="validateInject(5,'d5')">Valider</button><span id="f5" class="feedback"></span></div>
+      <div class="inject hidden" id="inj6"><h3>11h30 — Retour progressif</h3><p>Une partie de la production redémarre. La direction demande un bilan et les améliorations du PCA.</p><div class="field"><label>Clôture</label><select id="d6"><option value="0">Clôturer sans rapport</option><option value="10">Valider retour normal + bilan + actions correctives + mise à jour PCA</option><option value="5">Reprendre sans informer les parties prenantes</option></select></div><button class="btn" onclick="validateInject(6,'d6')">Valider</button><span id="f6" class="feedback"></span></div>
+    </div>
+  </section>
+
+  <section id="ressources" class="section">
+    <div class="hero"><h2>🔗 Ressources officielles et fiables</h2><p>Liens sélectionnés pour éviter les liens morts et les ressources trop générales.</p></div>
+    <div class="grid grid-2 links">
+      <div class="card"><h3>ISO</h3>
+        <a href="https://www.iso.org/fr/standard/75106.html" target="_blank">ISO 22301:2019 — page officielle FR</a>
+        <a href="https://www.iso.org/publication/PUB100442.html" target="_blank">Publication gratuite ISO — Business continuity</a>
+        <a href="https://www.iso.org/fr/standard/79000.html" target="_blank">ISO/TS 22317:2021 — BIA</a>
+        <a href="https://www.iso.org/fr/standard/27031" target="_blank">ISO/IEC 27031:2025 — ICT readiness</a>
+        <a href="https://www.iso.org/iso-31000-risk-management.html" target="_blank">ISO 31000 — Risk management</a>
+      </div>
+      <div class="card"><h3>NIST</h3>
+        <a href="https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final" target="_blank">NIST SP 800-34 Rev.1 — Contingency Planning Guide</a>
+        <a href="https://csrc.nist.gov/Topics/Security-and-Privacy/security-programs-and-operations/contingency-planning" target="_blank">NIST CSRC — Contingency Planning topic</a>
+        <div class="note">Ces liens ouvrent les pages officielles. Les normes ISO complètes sont généralement payantes, mais leurs pages officielles donnent les objectifs, le périmètre et les informations pédagogiques essentielles.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certify" class="section">
+    <div class="hero no-print"><h2>🎓 Certification et attestation</h2><p>L'attestation reprend le score, les compétences acquises et la signature du Prof. Azeddine KHIAT.</p><button class="btn good" onclick="buildCertificate()">Générer l'attestation</button> <button class="btn secondary" onclick="window.print()">Imprimer / Enregistrer en PDF</button></div>
+    <div id="certificate" class="certificate">
+      <h2>CERTIFICAT DE VALIDATION</h2>
+      <h3>Simulateur PCA — ISO 22301 Business Continuity Academy</h3>
+      <p>Il est certifié que</p>
+      <h2 id="certName">Nom et prénom</h2>
+      <p>a validé le parcours pédagogique interactif consacré à la conception d'un Plan de Continuité d'Activité.</p>
+      <div class="cert-grid">
+        <div><strong>Compétences acquises</strong><br>ISO 22301, BIA ISO/TS 22317, RTO/RPO, risques ISO 31000, PCA/PRA, cellule de crise, communication.</div>
+        <div><strong>Score global</strong><br><span id="certScore">0</span>/100<br><strong>Niveau :</strong> <span id="certLevel">À compléter</span></div>
+      </div>
+      <p><strong>Date :</strong> <span id="certDate"></span></p>
+      <p style="margin-top:35px">Signature</p>
+      <h3>Prof. Azeddine KHIAT</h3>
+      <p>Enseignant-Chercheur — HESTIM</p>
+      <p class="muted">Numéro : <span id="certId"></span></p>
+    </div>
+  </section>
+</main>
+<script>
+let simScore=0, injectDone=0;
+function showTab(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+function explain(group,title,text){document.querySelectorAll('[data-group="'+group+'"] .step').forEach(b=>b.classList.remove('selected'));event.target.classList.add('selected');document.getElementById(group+'Explain').innerHTML='<strong>'+title+' :</strong> '+text;}
+function checkRadio(name,fb){let v=document.querySelector('input[name="'+name+'"]:checked');let el=document.getElementById(fb); if(!v){el.textContent='Choisissez une réponse.';el.className='feedback ko';return} if(v.value==='1'){el.textContent='Bonne réponse : le PCA maintient les activités essentielles.';el.className='feedback ok'}else{el.textContent='Incorrect : la restauration des serveurs relève plutôt du PRA SI.';el.className='feedback ko'}}
+function save(){['studentName','ctx','p1','biaTxt','rto','risks','crisisTeam','com','miniPca'].forEach(id=>localStorage.setItem(id,document.getElementById(id).value));}
+function load(){['studentName','ctx','p1','biaTxt','rto','risks','crisisTeam','com','miniPca'].forEach(id=>{let v=localStorage.getItem(id); if(v!==null&&document.getElementById(id))document.getElementById(id).value=v;});}
+function evaluateCanvas(){let ids=['studentName','ctx','p1','biaTxt','rto','risks','crisisTeam','com','miniPca'];let filled=ids.filter(id=>document.getElementById(id).value.trim().length>10).length;let pct=Math.round((filled/ids.length)*100);let fb=document.getElementById('canvasFb');fb.textContent=' Canvas complété à '+pct+' %. '+(pct>=70?'Validation pédagogique possible.':'Complétez davantage les champs.');fb.className='feedback '+(pct>=70?'ok':'ko');localStorage.setItem('canvasScore',pct);}
+function validateInject(n,id){let val=parseInt(document.getElementById(id).value,10);let fb=document.getElementById('f'+n);if(val===10){fb.textContent=' Bonne décision : priorité, coordination et continuité.';fb.className='feedback ok'}else if(val===5){fb.textContent=' Décision partielle : certains éléments importants manquent.';fb.className='feedback ko'}else{fb.textContent=' Décision insuffisante : risque de retard et mauvaise coordination.';fb.className='feedback ko'}simScore=Math.min(100,simScore+val);injectDone=Math.max(injectDone,n);document.getElementById('score').textContent=simScore;document.getElementById('injectNum').textContent=injectDone;document.getElementById('simProgress').style.width=Math.round((injectDone/6)*100)+'%';if(n<6){document.getElementById('inj'+(n+1)).classList.remove('hidden');document.getElementById('inj'+(n+1)).scrollIntoView({behavior:'smooth',block:'center'});}localStorage.setItem('simScore',simScore);}
+function buildCertificate(){let name=document.getElementById('studentName').value.trim()||'Nom et prénom';let canvas=parseInt(localStorage.getItem('canvasScore')||'0',10);let global=Math.min(100,Math.round((simScore*0.7)+(canvas*0.3)));let level=global>=90?'Responsable PCA confirmé':global>=80?'Coordinateur PCA':global>=70?'Analyste PCA junior':global>=50?'Initiation PCA':'Non validé';document.getElementById('certName').textContent=name;document.getElementById('certScore').textContent=global;document.getElementById('certLevel').textContent=level;document.getElementById('certDate').textContent=new Date().toLocaleDateString('fr-FR');document.getElementById('certId').textContent='PCA-'+new Date().getFullYear()+'-'+Math.random().toString(36).slice(2,8).toUpperCase();}
+document.addEventListener('DOMContentLoaded',load);
+</script>
+</body>
+</html>
